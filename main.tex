@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{canciones} % Tu paquete personalizado
+\usepackage{geometry}
+\usepackage{graphicx}
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{catchfile}
+\usepackage{etoolbox}
+\newindex{titleidx}{titleidx}  % Crea el archivo titleidx.sxd
+
+\setlength{\sbarheight}{0pt}
+
+
+\usepackage{fancyhdr}
+% Configuración del pie de página
+\pagestyle{fancy}
+\fancyhf{} % Limpiar configuración existente
+\fancyfoot[L]{\small\textit{Iglesia Bendición Y Vida Los Guayos}}
+%\fancyfoot[C]{\small\thepage}
+\fancyfoot[R]{\small\textit{Ministerio de Música}}
+\renewcommand{\footrulewidth}{0.4pt} % Línea separadora
+
+\begin{document}
+\begin{titlepage}
+    \centering % Centrar todo el contenido
+    
+    % Logo de la iglesia (ajusta el tamaño según necesites)
+    \includegraphics[width=0.4\textwidth]{IMG/Logo.png}
+     
+    \vspace{2cm}
+    
+    % Título principal
+    {\Huge\bfseries CANCIONERO\par}
+    \vspace{1.5cm}
+    
+    % Subtítulo (opcional)
+    {\Large Ministerio de Música\par}
+    \vspace{3cm}
+    
+    % Pie de página
+    {\large \textcolor{gray}{Iglesia Bendición Y Vida Los Guayos}\par
+    \vspace{0.5cm}
+    {\large \textcolor{gray}{Año \the\year}}
+\end{titlepage}
+
+
+
+\newpage
+
+
+\restoregeometry
+
+
+
+\importarcanciones % Importa todas las canciones
+\end{document}

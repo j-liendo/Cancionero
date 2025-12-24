@@ -1,0 +1,42 @@
+% canciones.sty
+\ProvidesPackage{canciones}
+
+\RequirePackage[chorded]{songs}
+\RequirePackage{xcolor}
+\RequirePackage{import}
+
+
+% Personalización de los números de canción
+
+\definecolor{azul}{HTML}{3cb7a8}
+\definecolor{verde}{HTML}{76b729}
+\definecolor{marron}{HTML}{ccc5a6}
+\renewcommand{\lyricfont}{\sffamily\large}
+% 1. Enlarge the song title 
+\renewcommand{\printchord}[1]{%
+  \setbox0=\hbox{#1}%
+  \ifdim\wd0>2.5em%
+    \raisebox{1ex}{\color{red}\bfseries\large#1\vspace{-10ex}}%
+  \else
+    \raisebox{1ex}{\color{red}\bfseries\large#1\vspace{-10ex}}%
+  \fi
+}
+
+\renewcommand{\extendprelude}{%
+    {\large\showrefs\showauthors}%  % Tamaño pequeño para referencias y autores
+}
+\renewcommand{\extendpostlude}{%
+    {\large\songcopyright\ \songlicense\unskip}%  % Tamaño pequeño para copyright y licencia
+}
+
+\renewcommand{\stitlefont}{\bf\huge}
+\renewcommand{\notefont}{\itshape\small}
+\let\oldendsong\endsong % Guarda el comando original
+\renewcommand{\endsong}{\oldendsong\scleardpage} % Modifica para añadir salto
+
+\newcommand{\importarcanciones}{
+    \nosongnumbers
+  \include{A}
+  % Agregar más letras según sea necesario
+}
+\endinput
